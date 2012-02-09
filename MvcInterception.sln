@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcInterception", "MvcInterception\MvcInterception.csproj", "{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcInterception.Unity", "MvcInterception.Unity\MvcInterception.Unity.csproj", "{0D90C9DE-8872-4C17-B17A-A55BBE85D781}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Debug|x86.ActiveCfg = Debug|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Debug|x86.Build.0 = Debug|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Release|Mixed Platforms.Build.0 = Release|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Release|x86.ActiveCfg = Release|x86
+		{8A44F8E4-A74A-4E74-A2EA-A3CC246EE86B}.Release|x86.Build.0 = Release|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Debug|x86.ActiveCfg = Debug|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Debug|x86.Build.0 = Debug|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Release|x86.ActiveCfg = Release|x86
+		{0D90C9DE-8872-4C17-B17A-A55BBE85D781}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal
