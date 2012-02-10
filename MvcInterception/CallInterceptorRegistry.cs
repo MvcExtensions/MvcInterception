@@ -19,17 +19,24 @@ namespace MvcInterception
             set;
         }
 
-        public ICallInterceptorRegistry RegisterObjects<TObj>(Expression<Action<TObj>> action, params object[] objs)
+        public ICallInterceptorRegistry RegisterInterceptors<TObj>(Expression<Action<TObj>> action, params object[] objs)
         {
             var methodCall = action.Body as MethodCallExpression;
 
-            RegisterMethod(methodCall.Method, methodCall.Object.Type, ConvertInputObjects(objs));
+            RegisterMethod<TObj>(null, methodCall.Method, ConvertInputObjects(objs));
+
+            return this;
+        }
+
+        public ICallInterceptorRegistry RegisterInterceptors<TObj>(Predicate<MethodBase> methodPred, params object[] objs)
+        {
+            RegisterMethod<TObj>(methodPred, null, ConvertInputObjects(objs));
 
             return this;
         }
 
         protected abstract IEnumerable ConvertInputObjects(IEnumerable objs);
 
-        protected abstract void RegisterMethod(MethodInfo method, Type type, IEnumerable objects);
+        protected abstract void RegisterMethod<TObj>(Predicate<MethodBase> methodPred, MethodBase method, IEnumerable objects);
     }
 }

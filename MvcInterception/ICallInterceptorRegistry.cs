@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Reflection;
 using MvcExtensions;
 
 namespace MvcInterception
@@ -12,6 +13,8 @@ namespace MvcInterception
             set;
         }
 
-        ICallInterceptorRegistry RegisterObjects<TObj>(Expression<Action<TObj>> action, params object[] objs);
+        ICallInterceptorRegistry RegisterInterceptors<TObj>(Expression<Action<TObj>> action, params object[] objs);
+
+        ICallInterceptorRegistry RegisterInterceptors<TObj>(Predicate<MethodBase> methodPred, params object[] objs);
     }
 }

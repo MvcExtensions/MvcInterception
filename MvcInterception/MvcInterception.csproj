@@ -61,8 +61,9 @@
     <Compile Include="ActionParameter.cs" />
     <Compile Include="ActionReturn.cs" />
     <Compile Include="CallInterceptorRegistry.cs" />
-    <Compile Include="CallInterceptorRegistryExtensions.cs" />
+    <Compile Include="CallInterceptorRegistryExpressionExtensions.cs" />
     <Compile Include="ConfigureCallInterceptorsBase.cs" />
+    <Compile Include="CallInterceptorRegistryMethodExtensions.cs" />
     <Compile Include="DelegatedCallInterceptor.cs" />
     <Compile Include="ICallInterceptor.cs" />
     <Compile Include="IActionInvocation.cs" />

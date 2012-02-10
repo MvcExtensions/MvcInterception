@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using Microsoft.Practices.Unity.InterceptionExtension;
 
@@ -5,16 +6,29 @@ namespace MvcInterception.Unity
 {
     public class MethodMatchingRule : IMatchingRule
     {
-        public MethodMatchingRule()
+        public MethodMatchingRule(MethodBase method)
+            : this(x => x.Equals(method))
         {
+            
         }
 
-        public MethodMatchingRule(MethodInfo method)
+        public MethodMatchingRule(Predicate<MethodBase> method)
         {
-            Method = method;
+            MethodEqChecker = method;
         }
 
-        public MethodInfo Method
+
+        public static MethodMatchingRule Create(Predicate<MethodBase> methodChecker, MethodBase method)
+        {
+            if (methodChecker != null)
+                return new MethodMatchingRule(methodChecker);
+            if (method != null)
+                return new MethodMatchingRule(method);
+
+            return null;
+        }
+
+        public Predicate<MethodBase> MethodEqChecker
         {
             get;
             set;
@@ -22,7 +36,7 @@ namespace MvcInterception.Unity
 
         public bool Matches(MethodBase member)
         {
-            return member.Equals(Method);
+            return MethodEqChecker(member);
         }
     }
 }

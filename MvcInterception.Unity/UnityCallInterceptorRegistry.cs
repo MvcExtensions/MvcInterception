@@ -32,15 +32,28 @@ namespace MvcInterception.Unity
             }
         }
 
-        protected override void RegisterMethod(MethodInfo method, Type type, IEnumerable objects)
+        protected override void RegisterMethod<TObj>(Predicate<MethodBase> methodPred, MethodBase method, IEnumerable objects)
         {
-            var policyName = type.FullName + "." + method.Name + ", " + type.Assembly.FullName;
+            var type = method == null ? typeof(TObj) : method.ReflectedType;
+
+            string mname = null;
+
+            if (method != null)
+            {
+                mname = "." + method.Name;
+            }
+            else if (methodPred != null)
+            {
+                mname = "[" + methodPred.Method.ReflectedType.FullName + "." + methodPred.Method.Name + "]";
+            }
+
+            var policyName = type.FullName + mname + ", " + type.Assembly.FullName;
 
             PolicyDefinition policy;
 
             if (!cachePolicy.TryGetValue(policyName, out policy))
             {
-                Interception interceptionExtension = null;
+                Interception interceptionExtension;
 
                 if (transparentProxyInterceptor.CanIntercept(type))
                     interceptionExtension = InterceptionExtension.SetInterceptorFor(type, transparentProxyInterceptor);
@@ -49,7 +62,7 @@ namespace MvcInterception.Unity
                 else
                     interceptionExtension = InterceptionExtension.SetInterceptorFor(type, virtualMethodInterceptor);
 
-                policy = interceptionExtension.AddPolicy(policyName).AddMatchingRule(new MethodMatchingRule(method));
+                policy = interceptionExtension.AddPolicy(policyName).AddMatchingRule(MethodMatchingRule.Create(methodPred, method));
 
                 cachePolicy.Add(policyName, policy);
             }
